@@ -7,22 +7,21 @@
 
     <div class="team-container row">
 
-
-        <div class="col-sm-4 team-member">
-            <img src="assets/images/cto.png">
-            <div class="team-member-text">
-                <h4 class="team-member-position light">CTO</h4>
-                <h5 class="bold">Johnny B Good</h5>
-                <p class="light">The brains behind the whole operation</p>
-                <a href="http://www.twitter.com"><img class="team-social-icon" src="{{asset('images/team-twitter.svg')}}"></a>
-                <a href="http://www.facebook.com"><img class="team-social-icon"
-                                                       src="{{asset('images/team-facebook.svg')}}"></a>
-                <a href="https://plus.google.com/"><img class="team-social-icon"
-                                                        src="{{asset('images/team-google.svg')}}"></a>
+        @foreach ($teams as $team)
+            <div class="col-sm-4 team-member">
+                <img src="{{asset('storage/'.$team->img)}}">
+                <div class="team-member-text">
+                    <h4 class="team-member-position light">{{$team->job}}</h4>
+                    <h5 class="bold">{{$team->full_name}}</h5>
+                    <p class="light">{{$team->description}}</p>
+                    <a href="http://www.twitter.com"><img class="team-social-icon" src="{{asset('images/team-twitter.svg')}}"></a>
+                    <a href="http://www.facebook.com"><img class="team-social-icon" src="{{asset('images/team-facebook.svg')}}"></a>
+                    <a href="https://plus.google.com/"><img class="team-social-icon" src="{{asset('images/team-google.svg')}}"></a>
+                </div>
             </div>
-        </div>
-
-        <div class="col-sm-4 team-member">
+        @endforeach
+        
+        {{-- <div class="col-sm-4 team-member">
             <img src="assets/images/ceo.png">
             <div class="team-member-text">
                 <h4 class="team-member-position light">CEO</h4>
@@ -49,7 +48,7 @@
                                                         src="{{asset('images/team-google.svg')}}"></a>
             </div>
 
-        </div>
+        </div> --}}
         <!-- .row -->
 
     </div> <!--team-container--->

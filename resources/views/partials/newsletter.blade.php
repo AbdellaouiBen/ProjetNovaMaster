@@ -2,7 +2,7 @@
   ================================================== -->
 
   <div class="blue-section">
-    <h3 class="blue-section-header bold"> Download FREE!</h3>
+    <h3 class="blue-section-header bold"> Newsletter!</h3>
     <h4 class="blue-section-subtext light">Take it for a ride for any of your projects!</h4>
 
     <div class="email-form-div">

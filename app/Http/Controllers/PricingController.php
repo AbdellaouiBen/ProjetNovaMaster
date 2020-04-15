@@ -14,8 +14,9 @@ class PricingController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $pricings = Pricing::all();
+        return view('pricing.index',compact('pricings'));   
+     }
 
     /**
      * Show the form for creating a new resource.
@@ -24,7 +25,7 @@ class PricingController extends Controller
      */
     public function create()
     {
-        //
+        return view('pricing.add');
     }
 
     /**
@@ -35,7 +36,15 @@ class PricingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pricing = new Pricing();
+        $pricing->type= $request->input('type');
+        $pricing->prix= $request->input('prix');
+        $pricing->avantageUn= $request->input('avantageUn');
+        $pricing->avantageDeux= $request->input('avantageDeux');
+        $pricing->avantageTrois= $request->input('avantageTrois');
+        $pricing->avantageQuatre= $request->input('avantageQuatre');
+        $pricing->save();
+        return redirect()->route('pricing.index');
     }
 
     /**
@@ -57,7 +66,7 @@ class PricingController extends Controller
      */
     public function edit(Pricing $pricing)
     {
-        //
+        return view('pricing.edit',compact('pricing'));
     }
 
     /**
@@ -69,7 +78,14 @@ class PricingController extends Controller
      */
     public function update(Request $request, Pricing $pricing)
     {
-        //
+        $pricing->type= $request->input('type');
+        $pricing->prix= $request->input('prix');
+        $pricing->avantageUn= $request->input('avantageUn');
+        $pricing->avantageDeux= $request->input('avantageDeux');
+        $pricing->avantageTrois= $request->input('avantageTrois');
+        $pricing->avantageQuatre= $request->input('avantageQuatre');
+        $pricing->save();
+        return redirect()->route('pricing.index');
     }
 
     /**
@@ -80,6 +96,7 @@ class PricingController extends Controller
      */
     public function destroy(Pricing $pricing)
     {
-        //
+        $pricing->delete();
+        return redirect()-> route('pricing.index');
     }
 }

@@ -219,11 +219,11 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'pages',
+            'text'        => 'Site',
             'url'         => '/',
             'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            // 'label'       => 4,
+            // 'label_color' => 'success',
         ],
         [
             'text'    => 'Presentation',
@@ -245,6 +245,37 @@ return [
     
             ],
         ],
+        [
+            'text'    => 'Pricing',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Pricing existants',
+                    'url'  => '/pricing',
+                ],
+                [
+                    'text'    => 'ajouter un service',
+                    'url'     => '/pricing/create',
+                ],
+    
+            ],
+        ],
+        [
+            'text'    => 'Team members',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Membres existants',
+                    'url'  => '/team',
+                ],
+                [
+                    'text'    => 'ajouter un membre',
+                    'url'     => '/team/create',
+                ],
+    
+            ],
+        ],
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',

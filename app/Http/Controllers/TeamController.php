@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
@@ -14,7 +15,8 @@ class TeamController extends Controller
      */
     public function index()
     {
-        //
+        $teams = team::all();
+        return view('team.index',compact('teams'));
     }
 
     /**
@@ -24,7 +26,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('team.add');
     }
 
     /**
@@ -35,7 +37,16 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $img = $request->file('img');
+        $newName = Storage::disk('public')->put('',$img);	
+
+        $team = new Team();
+        $team->img=$newName;
+        $team->job= $request->input('job');
+        $team->full_name= $request->input('full_name');
+        $team->description= $request->input('description');
+        $team->save();
+        return redirect()->route('team.index');
     }
 
     /**
@@ -57,7 +68,7 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
-        //
+        return view('team.edit',compact('team'));
     }
 
     /**
@@ -69,7 +80,16 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
-        //
+
+        $img = $request->file('img');
+        $newName = Storage::disk('public')->put('',$img);	
+        Storage::disk('public')->delete($team->img);
+        $team->img=$newName;
+        $team->job= $request->input('job');
+        $team->full_name= $request->input('full_name');
+        $team->description= $request->input('description');
+        $team->save();
+        return redirect()->route('team.index');
     }
 
     /**
@@ -80,6 +100,8 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
-        //
+        Storage::disk('public')->delete($team->img);
+        $team->delete();    
+        return redirect()->route('team.index');
     }
 }
