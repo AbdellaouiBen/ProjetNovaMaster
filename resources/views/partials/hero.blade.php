@@ -17,16 +17,17 @@
                     <a class="navbar-item" href="#team">The Team</a>
                     <a class="navbar-item" href="#newsletter">Newsletter</a>
                     @guest
-                            <a class="navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
                         @if (Route::has('register'))
-                            <a class="navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     @else
-                            <a id="navbarDropdown" class="nav-item dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
+                    <a id="navbarDropdown"  class="navbar-item dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('home') }}">Dashboard</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -52,9 +53,9 @@
                     <h1 class="header-headline bold"> Beautiful Free Nova template <br></h1>
                     <h4 class="header-running-text light"> A top notch premium quality template for your next
                         web project.</h4>
-                    <a href="#email-form">
+                    {{-- <a href="#email-form">
                         <button class="hero-btn"> Download FREE!</button>
-                    </a>
+                    </a> --}} 
                 </div><!--hero-left-->
     
                 <div class="col-sm-6 col-sm-6 ipad">
