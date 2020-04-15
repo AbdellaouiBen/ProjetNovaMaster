@@ -2,7 +2,7 @@
   ================================================== -->
 
   <div class="logos-section">
-    <img class="logos" src="assets/images/logos.png"/>
+    <img class="logos" src="{{asset('images/logos.png')}}"/>
 </div><!--logos-section-->
 
 <!-- White-Section
@@ -11,7 +11,7 @@
 <div class="white-section row">
 
     <div class="imac col-sm-6">
-        <img class="imac-screen img-responsive" src="assets/images/imac.png">
+        <img class="imac-screen img-responsive" src="{{asset('images/imac.png')}}">
     </div>
     <!--imac-->
 

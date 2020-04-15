@@ -4,9 +4,9 @@ body {
     font-family: 'Montserrat', sans-serif;
 }
 
-.header-right {
+/* .header-right {
     display: none;
-}
+} */
 
 .navbar-item {
     color: #ffffff;
@@ -74,7 +74,7 @@ body {
 .hero {
     position: relative;
     z-index: 999;
-    padding-bottom: 60px;
+    padding-bottom: 400px;
 }
 
 .mouse {
@@ -103,13 +103,13 @@ body {
     text-align: center;
 }
 
-.ipad {
+/* .ipad {
     display: none;
 }
 
 .ipad-screen {
     display: none;
-}
+} */
 
 .hero-btn {
     -webkit-transition-duration: 0.4s;
