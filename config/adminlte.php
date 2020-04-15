@@ -220,10 +220,30 @@ return [
         ],
         [
             'text'        => 'pages',
-            'url'         => 'admin/pages',
+            'url'         => '/',
             'icon'        => 'far fa-fw fa-file',
             'label'       => 4,
             'label_color' => 'success',
+        ],
+        [
+            'text'    => 'Presentation',
+            'icon'    => 'fas fa-fw fa-share',
+            'url'     => '/presentation/1/edit',
+        ],
+        [
+            'text'    => 'Services',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'services existants',
+                    'url'  => '/service',
+                ],
+                [
+                    'text'    => 'ajouter un service',
+                    'url'     => '/service/create',
+                ],
+    
+            ],
         ],
         ['header' => 'account_settings'],
         [

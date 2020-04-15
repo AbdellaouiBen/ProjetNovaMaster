@@ -4,21 +4,22 @@
 
   <div id="features" class="features-section">
 
-    <div class="features-container row">
-
+    <div class="features-container row ">
         <h2 class="features-headline light">FEATURES</h2>
 
-        <div class="col-sm-4 feature">
-
+    @foreach ($services as $service)
+        
+        <div class="col-sm-4 feature ">
+            
             <div class="feature-icon feature-no-display">
-                <img class="feature-img" src="{{asset('images/responsive.svg')}}">
+                <img class="feature-img" src="{{asset('storage/'.$service->img)}}">
             </div>
-            <h5 class="feature-head-text feature-no-display"> FULLY RESPONSIVE </h5>
-            <p class="feature-subtext light feature-no-display"> Looks amazing on any
-                device: smartphone, tablet, laptop and desktop.</p>
+            <h5 class="feature-head-text feature-no-display"> {{$service->titre}} </h5>
+            <p class="feature-subtext light feature-no-display"> {{$service->description}}</p>
         </div>
+    @endforeach
 
-        <div class="col-sm-4 feature">
+        {{-- <div class="col-sm-4 feature">
             <div class="feature-icon feature-no-display feature-display-mid">
                 <img class="feature-img" src="{{asset('images/customizable.svg')}}">
             </div>
@@ -35,6 +36,6 @@
             <h5 class="feature-head-text feature-no-display feature-display-last"> SLICK AND BEAUTIFUL DESIGN </h5>
             <p class="feature-subtext light feature-no-display feature-display-last"> Trendy and fresh design, fits any
                 website.</p>
-        </div>
+        </div> --}}
     </div> <!--features-container-->
 </div> <!--features-section-->

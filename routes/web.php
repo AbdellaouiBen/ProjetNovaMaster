@@ -26,3 +26,4 @@ Route::get('/home', function() {
 })->name('home')->middleware('auth');
 
 Route::resource('presentation','PresentationController');
+Route::resource('service','ServiceController');

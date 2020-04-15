@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -14,7 +15,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $services = Service::all();
+        return view('service.index',compact('services'));
     }
 
     /**
@@ -24,7 +26,7 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        //
+        return view('service.add');
     }
 
     /**
@@ -35,7 +37,15 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $img = $request->file('icon');
+        $newName = Storage::disk('public')->put('',$img);	
+
+        $service = new Service();
+        $service->icon=$newName;
+        $service->titre= $request->input('titre');
+        $service->description= $request->input('description');
+        $service->save();
+        return redirect()->route('service.index');
     }
 
     /**
@@ -46,7 +56,7 @@ class ServiceController extends Controller
      */
     public function show(Service $service)
     {
-        //
+
     }
 
     /**
@@ -57,7 +67,7 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
-        //
+        return view('service.edit',compact('service'));
     }
 
     /**
@@ -69,7 +79,14 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
-        //
+        $img = $request->file('icon');
+        $newName = Storage::disk('public')->put('',$img);	
+        Storage::disk('public')->delete($service->icon);
+        $service->icon=$newName;
+        $service->titre= $request->input('titre');
+        $service->description= $request->input('description');
+        $service->save();
+        return redirect()->route('service.index');
     }
 
     /**
@@ -80,6 +97,8 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
-        //
+        Storage::disk('public')->delete($service->icon);
+        $service->delete();
+        return redirect()->route('service.index');
     }
 }
