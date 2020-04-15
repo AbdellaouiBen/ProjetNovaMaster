@@ -135,15 +135,16 @@ body {
 }
 
 .navbar-item:hover {
-    color: #58d5f7;
+    color: #fec924    ;
     text-decoration: none;
 }
 
 .hero-background {
     overflow: hidden;
     position: relative;
-    background: linear-gradient(117deg, rgb(96, 87, 246), rgb(216, 71, 99));
     background: radial-gradient(rgb(194, 74, 126), rgb(105, 86, 235));
+    background: rgb(254,201,36);
+    background: radial-gradient(circle, rgba(254,201,36,1) 0%, rgba(150,124,38,1) 40%, rgba(33,37,41,1) 85%);
 }
 
 .bold {
@@ -169,9 +170,9 @@ body {
 }
 
 .header-btn {
-    background-color: #0ABCEB;
+    background-color: #fec924;
     border-radius: 10px;
-    border: #0ABCEB;
+    border: #fec924;
     float: right;
     width: 195px;
     height: 51px;
@@ -181,7 +182,7 @@ body {
 }
 
 .header-btn:hover {
-    background-color: #58d5f7;
+    background-color: #fec924    ;
     color: white;
     border-radius: 20px;
     box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
@@ -216,7 +217,7 @@ body {
 
 .hero-right {
     color: #fff;
-    text-align: center;
+    /* text-align: center; */
 }
 
 /* .ipad {
@@ -229,9 +230,9 @@ body {
 
 .hero-btn {
     transition-duration: 0.4s;
-    background-color: #25F18B;
+    background-color: #fec924;
     border-radius: 10px;
-    border: 1px solid #25F18B;
+    border: 1px solid #fec924;
     width: 210px;
     height: 51px;
     color: white;
@@ -239,7 +240,7 @@ body {
 }
 
 .hero-btn:hover {
-    background-color: #6affb4;
+    background-color: #ffd861;
     color: white;
     border-radius: 20px;
     box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
@@ -248,14 +249,14 @@ body {
 .header-headline {
     padding-top: 0;
     padding-bottom: 15px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .header-running-text {
-    text-align: center;
+    /* text-align: center; */
     max-width: 287px;
     line-height: 1.5;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .logos-section {
@@ -348,8 +349,8 @@ body {
     text-align: center;
 }
 
-.imac {
-}
+/* .imac {
+} */
 
 .imac-section-header {
     padding-bottom: 35px;
@@ -455,9 +456,9 @@ ul {
 }
 
 .plan-btn {
-    background-color: #0ABCEB;
+    background-color: #fec924    ;
     border-radius: 10px;
-    border: #0ABCEB;
+    border: #fec924    ;
     width: 164px;
     height: 51px;
     color: white;
@@ -471,7 +472,7 @@ ul {
 }
 
 .plan-btn:hover {
-    background-color: #58d5f7;
+    background-color: #fec824c0    ;
     color: white;
     border-radius: 20px;
     box-shadow: -1px 9px 46px -17px rgba(43, 43, 43, 1);
@@ -510,7 +511,7 @@ ul {
 }
 
 .blue-section {
-    background-color: #0ABCEB;
+    background-color: #fec924;
     color: white;
     margin: auto;
     text-align: center;
@@ -572,7 +573,8 @@ ul {
 }
 
 .footer {
-    background-color: #464646;
+    background-color: #212529
+    ;
     padding-top: 20px;
     padding-bottom: 20px;
 }
