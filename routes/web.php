@@ -29,3 +29,4 @@ Route::resource('presentation','PresentationController');
 Route::resource('service','ServiceController');
 Route::resource('pricing','PricingController');
 Route::resource('team','TeamController');
+Route::resource('newsletter','NewsletterController');
