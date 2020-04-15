@@ -11,7 +11,7 @@
 <div class="white-section row">
 
     <div class="imac col-sm-6">
-        <img class="imac-screen img-responsive" src="{{asset('images/imac.png')}}">
+        <img class="imac-screen img-responsive" src="{{asset('storage/'.$presentation->img)}}">
     </div>
     <!--imac-->
 
@@ -19,13 +19,11 @@
 
         <div class="white-section-text">
 
-            <h2 class="imac-section-header light">SIMPLE AND BEAUTIFUL</h2>
+            <h2 class="imac-section-header light">{{$presentation->titre}}</h2>
 
             <div class="imac-section-desc">
 
-            <span>  Use Nova theme for your next web project.
-                It is completely customizable so you can change any of the sections to fit your needs.
-                Nova Theme is Free for any kind of use, personal and commercial. Have fun and good luck!</span>
+            <span>{{$presentation->text}}</span>
             </div>
         </div>
     </div>

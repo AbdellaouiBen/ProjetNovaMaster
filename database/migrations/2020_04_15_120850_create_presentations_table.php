@@ -16,7 +16,7 @@ class CreatePresentationsTable extends Migration
         Schema::create('presentations', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('text');
+            $table->text('text');
             $table->string('img');
             $table->timestamps();
         });
