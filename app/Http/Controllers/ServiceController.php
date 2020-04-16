@@ -48,7 +48,7 @@ class ServiceController extends Controller
         $validatedData = $request->validate([
             'icon' => 'required|image',
             'titre' => 'required|max:55',
-            'description' => 'description|max:250',
+            'description' => 'required|max:250',
         ]);
 
         $img = $request->file('icon');
@@ -98,15 +98,16 @@ class ServiceController extends Controller
         $this->authorize('isAdmin', User::class);
 
         $validatedData = $request->validate([
-            'icon' => 'required|image',
+            'icon' => 'image',
             'titre' => 'required|max:55',
-            'description' => 'description|max:250',
+            'description' => 'required|max:250',
         ]);
-
-        $img = $request->file('icon');
-        $newName = Storage::disk('public')->put('',$img);	
-        Storage::disk('public')->delete($service->icon);
-        $service->icon=$newName;
+        if ($request->hasFile('icon')) { 
+            $img = $request->file('icon');
+            $newName = Storage::disk('public')->put('',$img);	
+            Storage::disk('public')->delete($service->icon);
+            $service->icon=$newName;
+        } 
         $service->titre= $request->input('titre');
         $service->description= $request->input('description');
         $service->save();

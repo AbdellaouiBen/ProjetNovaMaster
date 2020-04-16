@@ -23,7 +23,7 @@ class UserPolicy
     public function isConnected(User $user)
     {
         return Auth::check();
-    }
+    } 
     public function isAdmin(User $user)
     {
         return $user->role_id==1;

@@ -17,28 +17,19 @@
                     <a class="navbar-item" href="#team">The Team</a>
                     <a class="navbar-item" href="#newsletter">Newsletter</a>
                     @guest
-                        <a class="navbar-item" href="{{ route('login') }}">{{ __('Login') }}</a>
-                        @if (Route::has('register'))
-                        <a class="navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
-                        @endif
+        
                     @else
-                    <a class="navbar-item" href="{{ route('home') }}">Dashboard</a>
-
-                    <a id="navbarDropdown"  class="navbar-item dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
+                        <a class="navbar-item" href="{{ route('home') }}">Dashboard</a>        
+                        <a class="navbar-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }} of {{ Auth::user()->name }}
                         </a>
 
-                            <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                
                         
                     @endguest
                 </div>

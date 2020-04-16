@@ -105,11 +105,15 @@ class PricingController extends Controller
             'type' => 'required|max:55',
             'prix' => 'required|numeric',
             'avantageUn' => 'required',
-            'plan' => 'required|file',
+            'plan' => 'file',
         ]);
-        $plan = $request->file('plan');
-        $planName = Storage::disk('public')->put('',$plan);
-        Storage::disk('public')->delete($pricing->plan);
+        if ($request->hasFile('plan')) { 
+            $plan = $request->file('plan');
+            $planName = Storage::disk('public')->put('',$plan);
+            Storage::disk('public')->delete($pricing->plan);
+            $pricing->plan= $planName;
+        } 
+     
 
         $pricing->type= $request->input('type');
         $pricing->prix= $request->input('prix');
@@ -117,7 +121,6 @@ class PricingController extends Controller
         $pricing->avantageDeux= $request->input('avantageDeux');
         $pricing->avantageTrois= $request->input('avantageTrois');
         $pricing->avantageQuatre= $request->input('avantageQuatre');
-        $pricing->plan= $planName;
         $pricing->save();
         return redirect()->route('pricing.index');
     }
@@ -131,7 +134,8 @@ class PricingController extends Controller
     public function destroy(Pricing $pricing)
     {
         $this->authorize('isAdmin', User::class);
-
+     
+        Storage::disk('public')->delete($pricing->plan);
         $pricing->delete();
         return redirect()-> route('pricing.index');
     }

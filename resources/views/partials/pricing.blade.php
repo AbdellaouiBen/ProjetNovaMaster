@@ -11,7 +11,7 @@
 
         <div class="col-sm-4 ">
             <div class="mid-plan">
-                <h3 class="plan-title light">{{$pricing->type}}<</h3>
+                <h3 class="plan-title light">{{$pricing->type}}</h3>
                 <h4 class="plan-cost bold">{{$pricing->prix}}</h4>
                 <h5 class="monthly">per month</h5>
                 <ul class="plan-features">

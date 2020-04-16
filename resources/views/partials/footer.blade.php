@@ -5,9 +5,17 @@
 
     <div class="container">
         <div class="row" style="position: relative">
-            <a href="/#presentation">
-                <div style="height: 50px" class="col-sm-2"></div>
-            </a>
+
+
+            
+            @can('isConnected', App\User::class)
+            <div style="" class="col-sm-2"></div>                
+            @endcan         
+            @cannot('isConnected', App\User::class)
+            <a href="{{ route('login') }}"><div style="height: 10px" class="col-sm-2"></div></a>
+            @endcannot
+
+
 
             <div class="col-sm-8 webscope">
                 <span class="webscope-text"> A free template by </span>

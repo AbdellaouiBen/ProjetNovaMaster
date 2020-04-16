@@ -165,7 +165,7 @@ return [
     | https://github.com/jeroennoten/Laravel-AdminLTE/#69-urls
     |
     */
-
+ 
     'use_route_url' => false,
 
     'dashboard_url' => 'home',
@@ -174,7 +174,8 @@ return [
 
     'login_url' => 'login',
 
-    'register_url' => 'register',
+    // 'register_url' => 'register',
+    'register_url' => 'false',
 
     'password_reset_url' => 'password/reset',
 
@@ -209,11 +210,11 @@ return [
     */
 
     'menu' => [
-        [
-            'text' => 'search',
-            'search' => true,
-            'topnav' => true,
-        ],
+        // [
+        //     'text' => 'search',
+        //     'search' => true,
+        //     'topnav' => true,
+        // ],
         [
             'text' => 'blog',
             'url'  => 'admin/blog',

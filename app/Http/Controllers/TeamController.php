@@ -49,7 +49,7 @@ class TeamController extends Controller
             'img' => 'required|image',
             'job' => 'required|max:55',
             'full_name' => 'required|max:55',
-            'description' => 'description|max:250',
+            'description' => 'required|max:250',
         ]);
 
         $img = $request->file('img');
@@ -103,16 +103,19 @@ class TeamController extends Controller
         $this->authorize('isAdmin', User::class);
 
         $validatedData = $request->validate([
-            'img' => 'required|image',
+            'img' => 'image',
             'job' => 'required|max:55',
             'full_name' => 'required|max:55',
-            'description' => 'description|max:250',
+            'description' => 'required|max:250',
         ]);
 
-        $img = $request->file('img');
-        $newName = Storage::disk('public')->put('',$img);	
-        Storage::disk('public')->delete($team->img);
-        $team->img=$newName;
+        if ($request->hasFile('img')) { 
+            $img = $request->file('img');
+            $newName = Storage::disk('public')->put('',$img);	
+            Storage::disk('public')->delete($team->img);
+            $team->img=$newName;
+        } 
+
         $team->job= $request->input('job');
         $team->full_name= $request->input('full_name');
         $team->description= $request->input('description');

@@ -83,17 +83,20 @@ class PresentationController extends Controller
         $validatedData = $request->validate([
             'titre' => 'required|max:55',
             'text' => 'required|max:255',
-            'img' => 'required|image',
+            'img' => 'image',
         ]);
 
-        $img = $request->file('img');
-        $newName = Storage::disk('public')->put('',$img);	
 
         $presentation = Presentation::find($id);
-        Storage::disk('public')->delete($presentation->img);
+        
+        if ($request->hasFile('img')) { 
+            $img = $request->file('img');
+            $newName = Storage::disk('public')->put('',$img);	
+            Storage::disk('public')->delete($presentation->img);
+            $presentation->img = $newName ;
+        } 
         $presentation->titre = $request->input('titre') ;
         $presentation->text = $request->input('text') ;
-        $presentation->img = $newName ;
         $presentation->save() ;
         return redirect()->route('home');
     }

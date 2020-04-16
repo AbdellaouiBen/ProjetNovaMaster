@@ -442,8 +442,8 @@ ul {
     font-size: 45px;
 }
 
-.plan-cost::before {
-    content: "$";
+.plan-cost::after {
+    content: "\20AC";
 }
 
 .monthly {
