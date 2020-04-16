@@ -21,6 +21,7 @@ class CreatePricingsTable extends Migration
             $table->string('avantageDeux')->nullable();
             $table->string('avantageTrois')->nullable();
             $table->string('avantageQuatre')->nullable();
+            $table->string('plan');
             $table->timestamps();
         });
     }

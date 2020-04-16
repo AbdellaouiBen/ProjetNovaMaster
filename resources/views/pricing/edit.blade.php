@@ -80,6 +80,17 @@
                 @enderror
             </div>
         </div>
+        <div class="form-group row">
+            <label for="plan" class="col-md-4 col-form-label text-md-right">Plan pdf</label>
+            <div class="col-md-6">
+                <input id="plan" type="file" class=" @error('plan') is-invalid @enderror" name="plan" value="{{ old('plan',$pricing->plan) }}" >
+                @error('plan')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
  
 
         <div class="text-center">

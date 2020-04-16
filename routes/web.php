@@ -28,6 +28,7 @@ Route::get('/home', function() {
 Route::resource('presentation','PresentationController');
 Route::resource('service','ServiceController');
 Route::resource('pricing','PricingController');
+Route::get('/pricing/{pricing}/download', 'PricingController@download')->name('pricing.download');
 Route::resource('team','TeamController');
 Route::resource('newsletter','NewsletterController');
 Route::resource('user','UserController');

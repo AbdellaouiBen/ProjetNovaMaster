@@ -31,6 +31,7 @@
                     <li>avantageQuatre: {{$pricing->avantageQuatre}}</li>
                 @endif
           </ul>
+          <a class="btn btn-primary" href="{{route('pricing.download',$pricing)}}">download</a>
           <a class="btn btn-warning" href="{{route('pricing.edit',$pricing)}}">edit</a>
           <form action="{{route('pricing.destroy',$pricing)}}" method="post">
                 @csrf

@@ -2,7 +2,7 @@
 <!-- Features
   ================================================== -->
 
-  <div id="features" class="features-section">
+  <div id="services" class="features-section">
 
     <div class="features-container row ">
         <h2 class="features-headline light">FEATURES</h2>

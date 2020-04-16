@@ -22,12 +22,13 @@
                         <a class="navbar-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                         @endif
                     @else
+                    <a class="navbar-item" href="{{ route('home') }}">Dashboard</a>
+
                     <a id="navbarDropdown"  class="navbar-item dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
 
                             <div class="dropdown-menu " aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('home') }}">Dashboard</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">

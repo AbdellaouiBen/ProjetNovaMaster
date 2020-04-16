@@ -8,7 +8,7 @@
 <!-- White-Section
   ================================================== -->
 
-<div class="white-section row">
+<div id="presentation" class="white-section row">
 
     <div class="imac col-sm-6">
         <img class="imac-screen img-responsive" src="{{asset('storage/'.$presentation->img)}}">

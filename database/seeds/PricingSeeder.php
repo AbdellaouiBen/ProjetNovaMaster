@@ -16,6 +16,7 @@ class PricingSeeder extends Seeder
             'prix' => '15',
             'avantageUn' => 'Up to 7 Projects',
             'avantageDeux' => '2 Additional Developers',
+            'plan' => 'planUn.pdf',
         ]);    
         DB::table('pricings')->insert([
             'type' => 'AGENCY',
@@ -23,6 +24,7 @@ class PricingSeeder extends Seeder
             'avantageUn' => 'Up to 25 Projects',
             'avantageDeux' => '2 Additional Developers',
             'avantageTrois' => 'Unlimited Support',
+            'plan' => 'planDeux.pdf',
         ]);    
     }
 }

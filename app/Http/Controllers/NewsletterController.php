@@ -47,7 +47,7 @@ class NewsletterController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|max:55',
-            'email' => 'required|email|unique',
+            'email' => 'required|email|unique:newsletters',
         ]);
         $newsletter = new Newsletter();
         $newsletter->name = $request->input('name');

@@ -64,6 +64,14 @@
                 <div  class="alert alert-danger">{{  $message  }}</div>
             @enderror
         </div>
+        <div class="form-group">
+            <label for="plan" class="">Plan pdf</label> <br>
+            <input value="@if($errors->first('plan'))@else{{old('plan')}}@endif"
+            type="file" name="plan" class=" @error('plan') is-invalid @enderror" id="plan" >
+            @error('plan')
+                <div  class="alert alert-danger">{{  $message  }}</div>
+            @enderror
+        </div>
 
 
         <button type="submit" class="btn btn-primary">Submit</button>

@@ -16,7 +16,7 @@
     <form action="{{route('service.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
-            <label for="icon" class="text-white">Icon</label> <br>
+            <label for="icon" class="">Icon</label> <br>
             <input value="@if($errors->first('icon'))@else{{old('icon')}}@endif"
             type="file" name="icon" class=" @error('icon') is-invalid @enderror" id="icon" >
             @error('icon')
@@ -24,7 +24,7 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="titre" class="text-white">titre</label>
+            <label for="titre" class="">titre</label>
             <input value="@if($errors->first('titre'))@else{{old('titre')}}@endif"
             type="text" name="titre" class="form-control @error('titre') is-invalid @enderror" id="titre" >
             @error('titre')
@@ -32,7 +32,7 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="description" class="text-white">description</label>
+            <label for="description" class="">description</label>
             <input value="@if($errors->first('description'))@else{{old('description')}}@endif"
             type="text" name="description" class="form-control @error('description') is-invalid @enderror" id="description" >
             @error('description')

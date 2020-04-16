@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Pricing;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PricingController extends Controller
 {
@@ -48,7 +49,10 @@ class PricingController extends Controller
             'type' => 'required|max:55',
             'prix' => 'required|numeric',
             'avantageUn' => 'required',
+            'plan' => 'required|file',
         ]);
+        $plan = $request->file('plan');
+        $planName = Storage::disk('public')->put('',$plan);
 
         $pricing = new Pricing();
         $pricing->type= $request->input('type');
@@ -57,6 +61,7 @@ class PricingController extends Controller
         $pricing->avantageDeux= $request->input('avantageDeux');
         $pricing->avantageTrois= $request->input('avantageTrois');
         $pricing->avantageQuatre= $request->input('avantageQuatre');
+        $pricing->plan= $planName;
         $pricing->save();
         return redirect()->route('pricing.index');
     }
@@ -100,7 +105,11 @@ class PricingController extends Controller
             'type' => 'required|max:55',
             'prix' => 'required|numeric',
             'avantageUn' => 'required',
+            'plan' => 'required|file',
         ]);
+        $plan = $request->file('plan');
+        $planName = Storage::disk('public')->put('',$plan);
+        Storage::disk('public')->delete($pricing->plan);
 
         $pricing->type= $request->input('type');
         $pricing->prix= $request->input('prix');
@@ -108,6 +117,7 @@ class PricingController extends Controller
         $pricing->avantageDeux= $request->input('avantageDeux');
         $pricing->avantageTrois= $request->input('avantageTrois');
         $pricing->avantageQuatre= $request->input('avantageQuatre');
+        $pricing->plan= $planName;
         $pricing->save();
         return redirect()->route('pricing.index');
     }
@@ -124,5 +134,9 @@ class PricingController extends Controller
 
         $pricing->delete();
         return redirect()-> route('pricing.index');
+    }
+    public function download(Pricing $pricing){
+        $extension = pathinfo(storage_path($pricing->plan), PATHINFO_EXTENSION);
+	    return  Storage::disk('public')->download($pricing->plan,$pricing->plan.'.'.$extension);
     }
 }

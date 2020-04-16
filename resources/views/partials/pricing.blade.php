@@ -29,8 +29,9 @@
                 </ul>
                 <div class="plan-price-div text-center">
                     <div class="choose-plan-div">
-                        <a class="plan-btn light" href="#">
-                            Get Started
+
+                        <a class="plan-btn light" href="{{route('pricing.download',$pricing)}}">
+                            Download plan
                         </a>
                     </div>
                 </div>
