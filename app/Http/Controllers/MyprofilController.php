@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Presentation;
-use Illuminate\Support\Facades\Storage;
+use App\User;
+use App\Role;
 
-class PresentationController extends Controller
+class MyprofilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class PresentationController extends Controller
      */
     public function index()
     {
-        $presentation = Presentation::first();
-        return view('presentation.index',compact('presentation'));
+        $users = User::all();
+        $roles = Role::all();
+        return view('myprofil.index',compact('users','roles'));
     }
 
     /**
@@ -59,8 +60,10 @@ class PresentationController extends Controller
      */
     public function edit($id)
     {
-        $presentation = Presentation::find($id);
-        return view('presentation.edit',compact('presentation'));
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('myprofil.edit',compact('user','roles'));
+
     }
 
     /**
@@ -72,17 +75,14 @@ class PresentationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $img = $request->file('img');
-        $newName = Storage::disk('public')->put('',$img);	
-
-        $presentation = Presentation::find($id);
-        Storage::disk('public')->delete($presentation->img);
-        $presentation->titre = $request->input('titre') ;
-        $presentation->text = $request->input('text') ;
-        $presentation->img = $newName ;
-        $presentation->save() ;
-        return redirect()->route('home');
-    }
+        $users = User::find($id);
+    
+        $users->name = $request->input('name');
+        $users->email = $request->input('email');
+       
+        $users->save();
+        return redirect()->route('myprofil.index');   
+     }
 
     /**
      * Remove the specified resource from storage.

@@ -30,3 +30,6 @@ Route::resource('service','ServiceController');
 Route::resource('pricing','PricingController');
 Route::resource('team','TeamController');
 Route::resource('newsletter','NewsletterController');
+Route::resource('user','UserController');
+Route::resource('myprofil','MyprofilController');
+Route::resource('password','PasswordController');

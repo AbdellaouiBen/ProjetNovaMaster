@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Presentation;
-use Illuminate\Support\Facades\Storage;
 
-class PresentationController extends Controller
+class PasswordController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class PresentationController extends Controller
      */
     public function index()
     {
-        $presentation = Presentation::first();
-        return view('presentation.index',compact('presentation'));
+        //
     }
 
     /**
@@ -59,8 +56,7 @@ class PresentationController extends Controller
      */
     public function edit($id)
     {
-        $presentation = Presentation::find($id);
-        return view('presentation.edit',compact('presentation'));
+        return view('password.edit');
     }
 
     /**
@@ -72,16 +68,10 @@ class PresentationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $img = $request->file('img');
-        $newName = Storage::disk('public')->put('',$img);	
-
-        $presentation = Presentation::find($id);
-        Storage::disk('public')->delete($presentation->img);
-        $presentation->titre = $request->input('titre') ;
-        $presentation->text = $request->input('text') ;
-        $presentation->img = $newName ;
-        $presentation->save() ;
-        return redirect()->route('home');
+        $user = Auth::user();
+        $user->password = $request->input('password');
+        $user->save();
+        return redirect()->route('myprofil.index');
     }
 
     /**

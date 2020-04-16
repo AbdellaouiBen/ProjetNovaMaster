@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Newsletter;
 use Illuminate\Http\Request;
 
+use App\MAIL\NewsletterMail;
+use Illuminate\Support\Facades\Mail;
+
 class NewsletterController extends Controller
 {
     /**
@@ -14,7 +17,8 @@ class NewsletterController extends Controller
      */
     public function index()
     {
-        //
+        $newsletters = Newsletter::all();
+        return view('newsletter.index',compact('newsletters'));
     }
 
     /**
@@ -24,7 +28,7 @@ class NewsletterController extends Controller
      */
     public function create()
     {
-        //
+        return view('newsletter.add');
     }
 
     /**
@@ -35,11 +39,13 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
+        //validate->unique email
         $newsletter = new Newsletter();
         $newsletter->name = $request->input('name');
         $newsletter->email = $request->input('email');
         $newsletter->save();
-        return redirect()->back();
+        Mail::to($request->input('email'))->send(new NewsletterMail($request->input('email'),$request->input('name')));
+        return redirect('/#team');
     }
 
     /**
@@ -61,7 +67,7 @@ class NewsletterController extends Controller
      */
     public function edit(Newsletter $newsletter)
     {
-        //
+        return view('newsletter.edit',compact('newsletter'));
     }
 
     /**
@@ -73,7 +79,12 @@ class NewsletterController extends Controller
      */
     public function update(Request $request, Newsletter $newsletter)
     {
-        //
+        //validate->unique email
+
+        $newsletter->name = $request->input('name');
+        $newsletter->email = $request->input('email');
+        $newsletter->save();
+        return redirect()->route('newsletter.index');
     }
 
     /**
@@ -84,6 +95,7 @@ class NewsletterController extends Controller
      */
     public function destroy(Newsletter $newsletter)
     {
-        //
+        $newsletter->delete();
+        return redirect()->route('newsletter.index');
     }
 }

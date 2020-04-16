@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'AdminLTE 3',
+    'title' => 'Admin Nova',
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -45,8 +45,8 @@ return [
     |
     */
 
-    'logo' => '<b>Admin</b>LTE',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>Admin</b>NOVA',
+    'logo_img' => 'storage/logo.svg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -219,58 +219,97 @@ return [
             'can'  => 'manage-blog',
         ],
         [
-            'text'        => 'Site',
+            'text'        => '. Site',
             'url'         => '/',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-desktop',
             // 'label'       => 4,
             // 'label_color' => 'success',
         ],
+        ['header' => 'SECTIONS'],
         [
             'text'    => 'Presentation',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-bullhorn',
             'url'     => '/presentation/1/edit',
+            'submenu' => [
+                [
+                    'text' => 'afficher la presentation',
+                    'url'  => '/presentation',
+                    'icon_color' => 'blue',
+                ],
+                [
+                    'text'    => 'modifier la presentation',
+                    'url'     => '/service/create',
+                    'url'     => '/presentation/1/edit',
+                    'icon_color' => 'yellow',
+
+                ],
+    
+            ],
         ],
         [
             'text'    => 'Services',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-handshake',
             'submenu' => [
                 [
                     'text' => 'services existants',
                     'url'  => '/service',
+                    'icon_color' => 'blue',
                 ],
                 [
                     'text'    => 'ajouter un service',
                     'url'     => '/service/create',
+                    'icon_color' => 'yellow',
                 ],
     
             ],
         ],
         [
             'text'    => 'Pricing',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-users',
             'submenu' => [
                 [
                     'text' => 'Pricing existants',
                     'url'  => '/pricing',
+                    'icon_color' => 'blue',
                 ],
                 [
                     'text'    => 'ajouter un service',
                     'url'     => '/pricing/create',
+                    'icon_color' => 'yellow',
                 ],
     
             ],
         ],
         [
             'text'    => 'Team members',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-users',
             'submenu' => [
                 [
                     'text' => 'Membres existants',
                     'url'  => '/team',
+                    'icon_color' => 'blue',
                 ],
                 [
                     'text'    => 'ajouter un membre',
                     'url'     => '/team/create',
+                    'icon_color' => 'yellow',
+                ],
+    
+            ],
+        ],
+        [  
+            'text'    => 'Newsletter',
+            'icon'    => 'fas fa-envelope',
+            'submenu' => [
+                [
+                    'text' => 'Newsletter members',
+                    'url'  => '/newsletter',
+                    'icon_color' => 'blue',
+                ],
+                [
+                    'text'    => 'ajouter un membre',
+                    'url'     => '/newsletter/create',
+                    'icon_color' => 'yellow',
                 ],
     
             ],
@@ -279,52 +318,20 @@ return [
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
-            'url'  => 'admin/settings',
+            'url'  => '/myprofil',
             'icon' => 'fas fa-fw fa-user',
         ],
+        // [
+        //     'text' => 'change_password',
+        //     'url'  => 'admin.password'
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'    => 'multilevel',
+            'text'    => 'Users',
+            'url'  => '/user',
             'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
         ],
+
         ['header' => 'labels'],
         [
             'text'       => 'important',
