@@ -59,6 +59,41 @@
                 @enderror
             </div>
         </div>
+
+        <div class="form-group row">
+            <label for="twitter" class="col-md-4 col-form-label  text-md-right">twitter (facultatif)</label>
+            <div class="col-md-6">
+                <input id="twitter" type="text" class="form-control @error('twitter') is-invalid @enderror" name="twitter" value="{{ old('twitter',$team->twitter) }}" >
+                @error('twitter')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="facebook" class="col-md-4 col-form-label  text-md-right">facebook (facultatif)</label>
+            <div class="col-md-6">
+                <input id="facebook" type="text" class="form-control @error('facebook') is-invalid @enderror" name="facebook" value="{{ old('facebook',$team->facebook) }}" >
+                @error('facebook')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+                @enderror
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="googlePlus" class="col-md-4 col-form-label  text-md-right">Google Plus (facultatif)</label>
+            <div class="col-md-6">
+                <input id="googlePlus" type="text" class="form-control @error('googlePlus') is-invalid @enderror" name="googlePlus" value="{{ old('googlePlus',$team->googlePlus) }}" >
+                @error('googlePlus')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+        
         <div class="text-center">
             <button class="btn btn-warning">Editer</button>
             <a href="{{route('team.index')}}" class="btn btn-danger">annuler</a>

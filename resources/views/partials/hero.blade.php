@@ -2,11 +2,11 @@
     ================================================== -->
     <div class="hero-background">
         <div>
-            <img class="strips" src="{{asset('images/strips.png')}}">
+            <img class="strips" src="{{asset('storage/strips.png')}}">
         </div>
         <div class="container">
             <div class="header-container header">
-                <a class="navbar-brand logo" href="#"> <img class="logo" src="{{asset('images/logo.svg')}}"/> </a>
+                <a class="navbar-brand logo" href="#"> <img class="logo" src="{{asset('storage/logo.svg')}}"/> </a>
                 {{-- <a href="#email-form">
                     <button class="header-btn"> Download FREE!</button>
                 </a> --}}
@@ -60,10 +60,10 @@
                 </div><!--hero-left-->
     
                 <div class="col-sm-6 col-sm-6 ipad">
-                    <img class="ipad-screen img-responsive" src="{{asset('images/screen.png')}}"/>
+                    <img class="ipad-screen img-responsive" src="{{asset('storage/screen.png')}}"/>
                 </div>
     
-                <div><img class="mouse" src="{{asset('images/mouse.svg')}}"/></div>
+                <div><img class="mouse" src="{{asset('storage/mouse.svg')}}"/></div>
     
             </div><!--hero-->
     

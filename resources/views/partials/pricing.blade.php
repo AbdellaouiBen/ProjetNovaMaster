@@ -38,47 +38,6 @@
             </div><!--pro-plan--->
         </div><!--col-->
         @endforeach
-{{-- 
-        <div class="col-sm-4">
-            <div class="mid-plan">
-                <h3 class="plan-title light">AGENCY</h3>
-                <h4 class="plan-cost bold">55</h4>
-                <h5 class="monthly">per month</h5>
-                <ul class="plan-features">
-                    <li>Up to 25 Projects</li>
-                    <li>2 Additional Developers</li>
-                    <li>Unlimited Support</li>
-                </ul>
-                <div class="plan-price-div text-center">
-                    <div class="choose-plan-div">
-                        <a class="plan-btn light" href="#">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-            </div><!--pro-plan--->
-        </div><!--col-->
-
-        <div class="col-sm-4">
-            <div class="plan">
-                <h3 class="plan-title light">PRO</h3>
-                <h4 class="plan-cost bold">75</h4>
-                <h5 class="monthly">per month</h5>
-                <ul class="plan-features">
-                    <li>Up to 25 Projects</li>
-                    <li>2 Additional Developers</li>
-                    <li>Unlimited Support</li>
-                    <li>1.5GB Disk Space</li>
-                </ul>
-                <div class="plan-price-div text-center">
-                    <div class="choose-plan-div">
-                        <a class="plan-btn light" href="#">
-                            Get Started
-                        </a>
-                    </div>
-                </div>
-            </div><!--pro-plan--->
-        </div><!--col--> --}}
 
     </div>  <!--pricing-table-->
 

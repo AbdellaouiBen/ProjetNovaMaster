@@ -19,6 +19,9 @@ class CreateTeamsTable extends Migration
             $table->string('job');
             $table->string('full_name');
             $table->string('description');
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('googlePlus')->nullable();
             $table->timestamps();
         });
     }

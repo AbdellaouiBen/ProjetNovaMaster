@@ -19,6 +19,15 @@
                     <h4 class="card-title">job: {{$team->job}}</h4> <br>
                     <h4 class="card-title">full_name: {{$team->full_name}}</h4>
                     <p class="card-text">description: {{$team->description}}</p>
+                    @if ($team->twitter)
+                        twitter: <a href="{{$team->twitter}}">{{$team->twitter}}</a> <br>
+                    @endif
+                    @if ($team->facebook)
+                        facebook:<a href="{{$team->facebook}}">{{$team->facebook}}</a> <br>
+                    @endif
+                    @if ($team->googlePlus)
+                        google plus;<a href="{{$team->googlePlus}}">{{$team->googlePlus}}</a> <br>
+                    @endif    
                 </div>
                 <a class="btn btn-warning" href="{{route('team.edit',$team)}}">Edit</a>
                 <form action="{{route('team.destroy',$team)}}" method="post">

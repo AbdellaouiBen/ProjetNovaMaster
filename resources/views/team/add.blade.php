@@ -47,6 +47,30 @@
                 <div  class="alert alert-danger">{{  $message  }}</div>
             @enderror
         </div>
+        <div class="form-group">
+            <label for="twitter" class="">twitter (facultatif)</label>
+            <input value="@if($errors->first('twitter'))@else{{old('twitter')}}@endif"
+            type="text" name="twitter" class="form-control @error('twitter') is-invalid @enderror" id="twitter" >
+            @error('twitter')
+                <div  class="alert alert-danger">{{  $message  }}</div>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label for="facebook" class="">facebook (facultatif)</label>
+            <input value="@if($errors->first('facebook'))@else{{old('facebook')}}@endif"
+            type="text" name="facebook" class="form-control @error('facebook') is-invalid @enderror" id="facebook" >
+            @error('facebook')
+                <div  class="alert alert-danger">{{  $message  }}</div>
+            @enderror
+        </div>
+        <div class="form-group">
+            <label for="googlePlus" class="">Google Plus (facultatif)</label>
+            <input value="@if($errors->first('googlePlus'))@else{{old('googlePlus')}}@endif"
+            type="text" name="googlePlus" class="form-control @error('googlePlus') is-invalid @enderror" id="googlePlus" >
+            @error('googlePlus')
+                <div  class="alert alert-danger">{{  $message  }}</div>
+            @enderror
+        </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
 

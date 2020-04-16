@@ -2,7 +2,7 @@
   ================================================== -->
 
   <div class="logos-section">
-    <img class="logos" src="{{asset('images/logos.png')}}"/>
+    <img class="logos" src="{{asset('storage/logos.png')}}"/>
 </div><!--logos-section-->
 
 <!-- White-Section

@@ -19,23 +19,6 @@
         </div>
     @endforeach
 
-        {{-- <div class="col-sm-4 feature">
-            <div class="feature-icon feature-no-display feature-display-mid">
-                <img class="feature-img" src="{{asset('images/customizable.svg')}}">
-            </div>
-            <h5 class="feature-head-text feature-no-display feature-display-mid"> CUSTOMIZABLE </h5>
-            <p class="feature-subtext light feature-no-display feature-display-mid"> Change the colors, pictures or any
-                of the sections
-                to suit your needs.</p>
-        </div>
 
-        <div class="col-sm-4 feature">
-            <div class="feature-icon feature-no-display feature-display-last">
-                <img class="bullet-img" src="{{asset('images/design.svg')}}">
-            </div>
-            <h5 class="feature-head-text feature-no-display feature-display-last"> SLICK AND BEAUTIFUL DESIGN </h5>
-            <p class="feature-subtext light feature-no-display feature-display-last"> Trendy and fresh design, fits any
-                website.</p>
-        </div> --}}
     </div> <!--features-container-->
 </div> <!--features-section-->

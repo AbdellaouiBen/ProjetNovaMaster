@@ -60,6 +60,9 @@ class TeamController extends Controller
         $team->job= $request->input('job');
         $team->full_name= $request->input('full_name');
         $team->description= $request->input('description');
+        $team->facebook= $request->input('facebook');
+        $team->twitter= $request->input('twitter');
+        $team->googlePlus= $request->input('googlePlus');
         $team->save();
         return redirect()->route('team.index');
     }
@@ -113,6 +116,9 @@ class TeamController extends Controller
         $team->job= $request->input('job');
         $team->full_name= $request->input('full_name');
         $team->description= $request->input('description');
+        $team->facebook= $request->input('facebook');
+        $team->twitter= $request->input('twitter');
+        $team->googlePlus= $request->input('googlePlus');
         $team->save();
         return redirect()->route('team.index');
     }
