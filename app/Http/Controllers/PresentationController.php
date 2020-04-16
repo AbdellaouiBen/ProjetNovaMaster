@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Presentation;
+use App\User;
 use Illuminate\Support\Facades\Storage;
 
 class PresentationController extends Controller
 {
+ 
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +17,8 @@ class PresentationController extends Controller
      */
     public function index()
     {
+        $this->authorize('isAdmin', User::class);
+
         $presentation = Presentation::first();
         return view('presentation.index',compact('presentation'));
     }
@@ -58,7 +62,9 @@ class PresentationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
+    {        
+        $this->authorize('isAdmin', User::class);
+
         $presentation = Presentation::find($id);
         return view('presentation.edit',compact('presentation'));
     }
@@ -72,6 +78,14 @@ class PresentationController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'titre' => 'required|max:55',
+            'text' => 'required|max:255',
+            'img' => 'required|image',
+        ]);
+
         $img = $request->file('img');
         $newName = Storage::disk('public')->put('',$img);	
 

@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Service;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +17,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
+        $this->authorize('isAdmin', User::class);
+
         $services = Service::all();
         return view('service.index',compact('services'));
     }
@@ -26,6 +30,8 @@ class ServiceController extends Controller
      */
     public function create()
     {
+        $this->authorize('isAdmin', User::class);
+
         return view('service.add');
     }
 
@@ -37,6 +43,14 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'icon' => 'required|image',
+            'titre' => 'required|max:55',
+            'description' => 'description|max:250',
+        ]);
+
         $img = $request->file('icon');
         $newName = Storage::disk('public')->put('',$img);	
 
@@ -67,6 +81,8 @@ class ServiceController extends Controller
      */
     public function edit(Service $service)
     {
+        $this->authorize('isAdmin', User::class);
+
         return view('service.edit',compact('service'));
     }
 
@@ -79,6 +95,14 @@ class ServiceController extends Controller
      */
     public function update(Request $request, Service $service)
     {
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'icon' => 'required|image',
+            'titre' => 'required|max:55',
+            'description' => 'description|max:250',
+        ]);
+
         $img = $request->file('icon');
         $newName = Storage::disk('public')->put('',$img);	
         Storage::disk('public')->delete($service->icon);
@@ -97,6 +121,8 @@ class ServiceController extends Controller
      */
     public function destroy(Service $service)
     {
+        $this->authorize('isAdmin', User::class);
+
         Storage::disk('public')->delete($service->icon);
         $service->delete();
         return redirect()->route('service.index');

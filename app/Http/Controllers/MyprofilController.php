@@ -75,6 +75,10 @@ class MyprofilController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validatedData = $request->validate([
+            'name' => 'required|max:55',
+            'email' => 'required|email|unique:users,email,'.$id,
+        ]);
         $users = User::find($id);
     
         $users->name = $request->input('name');

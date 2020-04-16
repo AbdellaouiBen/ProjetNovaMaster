@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Pricing;
+use App\User;
 use Illuminate\Http\Request;
 
 class PricingController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -14,6 +16,8 @@ class PricingController extends Controller
      */
     public function index()
     {
+        $this->authorize('isAdmin', User::class);
+
         $pricings = Pricing::all();
         return view('pricing.index',compact('pricings'));   
      }
@@ -25,6 +29,8 @@ class PricingController extends Controller
      */
     public function create()
     {
+        $this->authorize('isAdmin', User::class);
+
         return view('pricing.add');
     }
 
@@ -36,6 +42,14 @@ class PricingController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'type' => 'required|max:55',
+            'prix' => 'required|numeric',
+            'avantageUn' => 'required',
+        ]);
+
         $pricing = new Pricing();
         $pricing->type= $request->input('type');
         $pricing->prix= $request->input('prix');
@@ -66,6 +80,8 @@ class PricingController extends Controller
      */
     public function edit(Pricing $pricing)
     {
+        $this->authorize('isAdmin', User::class);
+
         return view('pricing.edit',compact('pricing'));
     }
 
@@ -78,6 +94,14 @@ class PricingController extends Controller
      */
     public function update(Request $request, Pricing $pricing)
     {
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'type' => 'required|max:55',
+            'prix' => 'required|numeric',
+            'avantageUn' => 'required',
+        ]);
+
         $pricing->type= $request->input('type');
         $pricing->prix= $request->input('prix');
         $pricing->avantageUn= $request->input('avantageUn');
@@ -96,6 +120,8 @@ class PricingController extends Controller
      */
     public function destroy(Pricing $pricing)
     {
+        $this->authorize('isAdmin', User::class);
+
         $pricing->delete();
         return redirect()-> route('pricing.index');
     }

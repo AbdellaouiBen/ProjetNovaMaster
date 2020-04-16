@@ -8,6 +8,7 @@ use App\Role;
 
 class UserController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -15,6 +16,8 @@ class UserController extends Controller
      */
     public function index()
     {
+        $this->authorize('isAdmin', User::class);
+
         $users = User::all();
         $roles = Role::all();
         return view('user.index',compact('users','roles'));
@@ -27,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.add');
+ 
     }
 
     /**
@@ -60,7 +63,8 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        
+        $this->authorize('isAdmin', User::class);
+
         $roles = Role::all();
         return view('user.edit',compact('user','roles'));
     }
@@ -74,6 +78,13 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:55',
+            'email' => 'required|email|unique:users,email,'.$id,
+            'role_id' => 'required',
+        ]);
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->role_id = $request->input('role_id');
@@ -88,7 +99,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
-    {
+    {      
+        $this->authorize('isAdmin', User::class);
+
         $user->delete();
         return redirect()->route('user.index');
     }

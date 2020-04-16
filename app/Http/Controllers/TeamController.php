@@ -3,18 +3,22 @@
 namespace App\Http\Controllers;
 
 use App\Team;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {        
+        $this->authorize('isAdmin', User::class);
+
         $teams = team::all();
         return view('team.index',compact('teams'));
     }
@@ -26,6 +30,8 @@ class TeamController extends Controller
      */
     public function create()
     {
+        $this->authorize('isAdmin', User::class);
+
         return view('team.add');
     }
 
@@ -37,6 +43,15 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'img' => 'required|image',
+            'job' => 'required|max:55',
+            'full_name' => 'required|max:55',
+            'description' => 'description|max:250',
+        ]);
+
         $img = $request->file('img');
         $newName = Storage::disk('public')->put('',$img);	
 
@@ -68,6 +83,8 @@ class TeamController extends Controller
      */
     public function edit(Team $team)
     {
+        $this->authorize('isAdmin', User::class);
+
         return view('team.edit',compact('team'));
     }
 
@@ -80,6 +97,14 @@ class TeamController extends Controller
      */
     public function update(Request $request, Team $team)
     {
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'img' => 'required|image',
+            'job' => 'required|max:55',
+            'full_name' => 'required|max:55',
+            'description' => 'description|max:250',
+        ]);
 
         $img = $request->file('img');
         $newName = Storage::disk('public')->put('',$img);	
@@ -100,6 +125,8 @@ class TeamController extends Controller
      */
     public function destroy(Team $team)
     {
+        $this->authorize('isAdmin', User::class);
+
         Storage::disk('public')->delete($team->img);
         $team->delete();    
         return redirect()->route('team.index');

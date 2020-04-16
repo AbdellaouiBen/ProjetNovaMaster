@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Newsletter;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\MAIL\NewsletterMail;
@@ -10,6 +11,7 @@ use Illuminate\Support\Facades\Mail;
 
 class NewsletterController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -17,6 +19,8 @@ class NewsletterController extends Controller
      */
     public function index()
     {
+        $this->authorize('isAdmin', User::class);
+
         $newsletters = Newsletter::all();
         return view('newsletter.index',compact('newsletters'));
     }
@@ -28,6 +32,8 @@ class NewsletterController extends Controller
      */
     public function create()
     {
+        $this->authorize('isAdmin', User::class);
+
         return view('newsletter.add');
     }
 
@@ -39,7 +45,10 @@ class NewsletterController extends Controller
      */
     public function store(Request $request)
     {
-        //validate->unique email
+        $validatedData = $request->validate([
+            'name' => 'required|max:55',
+            'email' => 'required|email|unique',
+        ]);
         $newsletter = new Newsletter();
         $newsletter->name = $request->input('name');
         $newsletter->email = $request->input('email');
@@ -67,6 +76,7 @@ class NewsletterController extends Controller
      */
     public function edit(Newsletter $newsletter)
     {
+
         return view('newsletter.edit',compact('newsletter'));
     }
 
@@ -79,7 +89,12 @@ class NewsletterController extends Controller
      */
     public function update(Request $request, Newsletter $newsletter)
     {
-        //validate->unique email
+        $this->authorize('isAdmin', User::class);
+
+        $validatedData = $request->validate([
+            'name' => 'required|max:55',
+            'email' => 'required|email|unique:newsletters,email,'.$newsletter->id,
+        ]);
 
         $newsletter->name = $request->input('name');
         $newsletter->email = $request->input('email');
@@ -95,6 +110,8 @@ class NewsletterController extends Controller
      */
     public function destroy(Newsletter $newsletter)
     {
+        $this->authorize('isAdmin', User::class);
+
         $newsletter->delete();
         return redirect()->route('newsletter.index');
     }

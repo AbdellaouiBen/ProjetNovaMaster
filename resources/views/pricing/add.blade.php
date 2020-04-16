@@ -2,7 +2,7 @@
 
 @extends('adminlte::page')
 
-@section('title', 'AdminLTE')
+@section('title', 'AdminNova')
 
 @section('content_header')
     <h1 class="m-0 text-dark">Add Pricing</h1>

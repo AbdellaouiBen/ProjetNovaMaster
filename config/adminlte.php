@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -294,7 +295,6 @@ return [
                     'url'     => '/team/create',
                     'icon_color' => 'yellow',
                 ],
-    
             ],
         ],
         [  
@@ -311,10 +311,8 @@ return [
                     'url'     => '/newsletter/create',
                     'icon_color' => 'yellow',
                 ],
-    
-            ],
+            ], 
         ],
-
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
@@ -345,7 +343,8 @@ return [
             'text'       => 'information',
             'icon_color' => 'aqua',
         ],
-    ],
+    ], 
+
 
     /*
     |--------------------------------------------------------------------------
