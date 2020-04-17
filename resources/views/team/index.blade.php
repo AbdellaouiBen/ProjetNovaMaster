@@ -16,17 +16,17 @@
                     <img class="card-img-top w-25" src="{{asset('storage/'.$team->img)}}" alt="icon">
                 </div>
                 <div class="card-body">
-                    <h4 class="card-title">job: {{$team->job}}</h4> <br>
-                    <h4 class="card-title">full_name: {{$team->full_name}}</h4>
-                    <p class="card-text">description: {{$team->description}}</p>
+                    <h4 class="card-title"><b>job:</b>  {{$team->job}}</h4> <br>
+                    <h4 class="card-title"><b>full_name:</b> {{$team->full_name}}</h4>
+                    <p class="card-text"><b>description:</b> {{$team->description}}</p>
                     @if ($team->twitter)
-                        twitter: <a href="{{$team->twitter}}">{{$team->twitter}}</a> <br>
+                        <b>twitter: </b> <a href="{{$team->twitter}}">{{$team->twitter}}</a> <br>
                     @endif
                     @if ($team->facebook)
-                        facebook:<a href="{{$team->facebook}}">{{$team->facebook}}</a> <br>
+                        <b>facebook: </b><a href="{{$team->facebook}}">{{$team->facebook}}</a> <br>
                     @endif
                     @if ($team->googlePlus)
-                        google plus;<a href="{{$team->googlePlus}}">{{$team->googlePlus}}</a> <br>
+                        <b>google plus: </b><a href="{{$team->googlePlus}}">{{$team->googlePlus}}</a> <br>
                     @endif    
                 </div>
                 <a class="btn btn-warning" href="{{route('team.edit',$team)}}">Edit</a>

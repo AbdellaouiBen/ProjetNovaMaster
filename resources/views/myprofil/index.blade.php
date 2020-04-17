@@ -18,7 +18,7 @@
     <div class="mb-5 container">
         <div class="text-center">
                 
-            <h1 class="text-white shadow-lg p-3 mt-3 mb- bg-danger rounded">My profil </h1>
+            <h1 class="text-white shadow-lg p-3 mt-3 mb- bg-warning rounded">My profil </h1>
         </div>
         <table class="table table-striped table-secondary">
             <thead class="bg-dark text-warning">

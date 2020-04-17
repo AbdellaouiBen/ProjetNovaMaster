@@ -40,7 +40,7 @@
 
         <div class="text-center">
             <button class="btn btn-warning">Editer</button>
-            <a href="{{route('newsletter.index')}}" class="btn btn-danger">annuler</a>
+            <a href="{{route('newsletter.index')}}" class="btn  btn-dark btn-outline-warning">annuler</a>
         </div>
     </form>
 </div>

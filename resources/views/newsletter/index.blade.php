@@ -7,25 +7,40 @@
 @stop
 
 @section('content')
-<div class="row border border-dark">
-    <div class="col-1 border">Id</div>
-    <div class="col-3 border">Nom</div>
-    <div class="col-4 border">email</div>
-    <div class="col-4 border">action</div>
-</div>
-<div class="row border border-dark">
-    @foreach ($newsletters as $newsletter)
-    <div class="col-1 border">{{$newsletter->id}}</div>
-    <div class="col-3 border">{{$newsletter->name}}</div>
-    <div class="col-4 border">{{$newsletter->email}}</div>
-    <div class="col-4 border d-flex justify-content-center">
-                <a class="btn btn-warning mx-3" href="{{route('newsletter.edit',$newsletter)}}">Edit</a>
-                <form action="{{route('newsletter.destroy',$newsletter)}}" method="post">
-                    @method('DELETE')
-                    @csrf
-                    <button class="btn btn-danger mx-3 " type="submit">Delete</button>
-                </form>
+
+<div class="mb-5 container">
+    <div class="text-center">
+
+        <h1 class="text-white shadow-lg p-3 mt-3 mb- bg-warning rounded">Newsletter list </h1>
     </div>
-    @endforeach
+    <table class="table table-striped table-secondary">
+        <thead class="bg-dark text-warning">
+            <tr>
+                <th scope="col" class="text-center">Id</th>
+                <th scope="col" class="text-center">Nom</th>
+                <th scope="col" class="text-center">Email</th>
+                <th scope="col" class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($newsletters as $newsletter)
+            <tr>
+                <th scope="row" class="text-center">{{$newsletter->id}}</th>
+                <td class="text-center">{{$newsletter->name}}</td>
+                <td class="text-center">{{$newsletter->email}}</td>
+                
+                <td class="d-flex justify-content-around ">  
+                    <a class="btn btn-warning mx-3" href="{{route('newsletter.edit',$newsletter)}}">Edit</a>
+                    <form action="{{route('newsletter.destroy',$newsletter)}}" method="post">
+                        @method('DELETE')
+                        @csrf
+                        <button class="btn btn-danger mx-3 " type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
 </div>
+
 @stop

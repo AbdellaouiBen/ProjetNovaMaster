@@ -19,7 +19,7 @@
                 @method('PUT')
                 @csrf
                 <div class="form-group row">
-                    <label for="name" class="col-md-4 col-form-label text-white text-md-right">{{ __('Name') }}</label>
+                    <label for="name" class="col-md-4 col-form-label  text-md-right">{{ __('Name') }}</label>
                     <div class="col-md-6">
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name',$user->name) }}" required autocomplete="name" autofocus>
                         @error('name')
@@ -31,7 +31,7 @@
                 </div>
                 
                 <div class="form-group row">
-                    <label for="email" class="col-md-4 col-form-label text-md-right text-white">{{ __('E-Mail Address') }}</label>
+                    <label for="email" class="col-md-4 col-form-label text-md-right ">{{ __('E-Mail Address') }}</label>
                     <div class="col-md-6">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email',$user->email) }}" required autocomplete="email">
                         @error('email')
@@ -44,8 +44,8 @@
 
 
                 <div class="text-center">
-                    <button type="submit" class="btn btn-primary">UPDATE</button>
-                    <a href="{{route('myprofil.index')}}" class="btn btn-primary">ANNULER</a>
+                    <button type="submit" class="btn btn-dark btn-outline-warning">UPDATE</button>
+                    <a href="{{route('myprofil.index')}}" class="btn  btn-outline-danger">ANNULER</a>
                 </div>
                
             </form>

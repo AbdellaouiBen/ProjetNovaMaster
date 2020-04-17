@@ -106,7 +106,7 @@ return [
     'classes_brand_text' => '',
     'classes_content_header' => 'container-fluid',
     'classes_content' => 'container-fluid',
-    'classes_sidebar' => 'sidebar-dark-primary elevation-4',
+    'classes_sidebar' => 'sidebar-dark-yellow elevation-4',
     'classes_sidebar_nav' => '',
     'classes_topnav' => 'navbar-white navbar-light',
     'classes_topnav_nav' => 'navbar-expand-md',
@@ -267,7 +267,7 @@ return [
         ],
         [
             'text'    => 'Pricing',
-            'icon'    => 'fas fa-users',
+            'icon'    => 'fas fa-tags',
             'submenu' => [
                 [
                     'text' => 'Pricing existants',
@@ -319,6 +319,7 @@ return [
             'text' => 'profile',
             'url'  => '/myprofil',
             'icon' => 'fas fa-fw fa-user',
+            'icon_color' => 'blue',
         ],
         // [
         //     'text' => 'change_password',
@@ -327,23 +328,24 @@ return [
         // ],
         [
             'text'    => 'Users',
-            'url'  => '/user',
-            'icon'    => 'fas fa-fw fa-share',
-        ],
-
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
+            'url'     => '/user',
+            'icon'    => 'fas fa-address-book',
             'icon_color' => 'red',
         ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'aqua',
-        ],
+
+        // ['header' => 'labels'],
+        // [
+        //     'text'       => 'important',
+        //     'icon_color' => 'red',
+        // ],
+        // [
+        //     'text'       => 'warning',
+        //     'icon_color' => 'yellow',
+        // ],
+        // [
+        //     'text'       => 'information',
+        //     'icon_color' => 'aqua',
+        // ],
     ], 
 
 

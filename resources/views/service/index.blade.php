@@ -17,8 +17,8 @@
                     <img class="card-img-top w-25" src="{{asset('storage/'.$service->icon)}}" alt="icon">
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">titre: {{$service->titre}}</h5>
-                    <p class="card-text">description: {{$service->description}}</p>
+                    <h5 class="card-title"><b>titre:</b>  {{$service->titre}}</h5>
+                    <p class="card-text"><b>description:</b> {{$service->description}}</p>
                 </div>
                 <a class="btn btn-warning" href="{{route('service.edit',$service)}}">Edit</a>
                 <form action="{{route('service.destroy',$service)}}" method="post">
